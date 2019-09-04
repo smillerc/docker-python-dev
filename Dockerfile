@@ -1,4 +1,4 @@
-FROM continuumio/miniconda3
+FROM jupyter/scipy-notebook
 
 RUN conda install bokeh \
     cartopy \
@@ -11,8 +11,6 @@ RUN conda install bokeh \
     hdf5 \
     hvplot \
     holoviews \
-    jupyter \
-    jupyterlab \
     matplotlib \
     nbconvert \
     nbformat \
@@ -26,10 +24,8 @@ RUN conda install bokeh \
     pandoc \
     param \
     pygments \
+    plotly \
     pyyaml \
-    qt \
-    qtawesome \
-    qtpy \
     scikit-image \
     scikit-learn \
     scipy \
@@ -43,7 +39,6 @@ RUN conda install bokeh \
     xarray \
     zlib \
     paramiko \
-    qtconsole \
     seaborn
 
 RUN pip install \
@@ -63,6 +58,14 @@ RUN pip install \
     titlecase \
     uncertainties \
     webcolors \
-    pyqt5 \
-    pyqt5-sip \
     bezier
+
+
+# Jupyter widgets extension
+RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager@1.0 \
+                                jupyterlab-plotly@1.1.0 \
+                                plotlywidget@1.1.0 \
+                                jupyterlab-chart-editor@1.2 \
+                                @pyviz/jupyterlab_pyviz \
+                                @ryantam626/jupyterlab_code_formatter
+
