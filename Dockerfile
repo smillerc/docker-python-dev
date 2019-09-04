@@ -51,7 +51,6 @@ RUN pip install \
     inflect \
     inflection \
     jupyterlab-code-formatter \
-    jupyterlab-launcher \
     periodictable \
     pint \
     tabulate \
@@ -60,7 +59,8 @@ RUN pip install \
     webcolors \
     bezier
 
-
+RUN conda update jupyterlab -y
+RUN conda clean --all -y
 # Jupyter widgets extension
 RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager@1.0 \
                                 jupyterlab-plotly@1.1.0 \
