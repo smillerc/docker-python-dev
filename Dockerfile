@@ -62,10 +62,10 @@ RUN pip install \
 RUN conda update jupyterlab -y
 RUN conda clean --all -y
 # Jupyter widgets extension
-RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager@1.0 \
-                                jupyterlab-plotly@1.1.0 \
-                                plotlywidget@1.1.0 \
-                                jupyterlab-chart-editor@1.2 \
+RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager \
+                                jupyterlab-plotly \
+                                plotlywidget \
+                                jupyterlab-chart-editor \
                                 @pyviz/jupyterlab_pyviz \
                                 @ryantam626/jupyterlab_code_formatter
 
